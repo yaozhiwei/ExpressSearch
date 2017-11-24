@@ -1,2 +1,2 @@
 # ExpressSearch
-快递查询小功能
+快递查询功能
