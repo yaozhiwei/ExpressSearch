@@ -1,0 +1,18 @@
+﻿@model ExpressSearch.Models.ResultJson
+
+@{
+    ViewBag.data = "Home Page";
+    var express = (ExpressSearch.Models.SysExpressSearch)Model.info;
+}
+
+<div style="text-align:center;">
+    <h3>快递详情</h3>
+    @if (express != null && express.InfoList != null)
+    {
+        @express.MailNo
+    }
+    else
+    {
+        @Model.msg
+    }
+</div>
