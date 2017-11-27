@@ -11,6 +11,6 @@ namespace ExpressSearch.Models
 
         public string msg { get; set; }
 
-        public object info { get; set; }
+        public SysExpressSearch info { get; set; }
     }
 }

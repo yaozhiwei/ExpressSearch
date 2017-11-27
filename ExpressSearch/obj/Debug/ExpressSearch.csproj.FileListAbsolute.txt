@@ -39,7 +39,6 @@ G:\github\ExpressSearch\ExpressSearch\bin\Microsoft.Owin.Security.MicrosoftAccou
 G:\github\ExpressSearch\ExpressSearch\bin\Microsoft.Owin.Security.OAuth.dll
 G:\github\ExpressSearch\ExpressSearch\bin\Microsoft.Owin.Security.Twitter.dll
 G:\github\ExpressSearch\ExpressSearch\bin\Microsoft.Web.Infrastructure.dll
-G:\github\ExpressSearch\ExpressSearch\bin\Newtonsoft.Json.dll
 G:\github\ExpressSearch\ExpressSearch\bin\Owin.dll
 G:\github\ExpressSearch\ExpressSearch\bin\System.Web.Helpers.dll
 G:\github\ExpressSearch\ExpressSearch\bin\System.Web.Mvc.dll

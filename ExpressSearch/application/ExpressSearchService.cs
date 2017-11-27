@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace ExpressSearch.application
 {
@@ -25,7 +26,7 @@ namespace ExpressSearch.application
         private const string host = "https://ali-deliver.showapi.com";
         private const string path = "/showapi_expInfo";
         private const string method = "GET";
-        private const string appcode = "696a5aa296cc4771a7c71fba3681285d";
+        private const string appcode = ""; //阿里云账号里的key
 
         #region 列表
         /// <summary>
@@ -226,11 +227,11 @@ namespace ExpressSearch.application
 
             if (string.IsNullOrWhiteSpace(com))
             {
-                return LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 0, msg = "公司编号不能为空" });
+                return Json.ToJson(new Models.ResultJson() { status = 0, msg = "公司编号不能为空" });
             }
             if (string.IsNullOrWhiteSpace(nu))
             {
-                return LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 0, msg = "快递号不能为空" });
+                return Json.ToJson(new Models.ResultJson() { status = 0, msg = "快递号不能为空" });
             }
 
             //判断是否已经被签收
@@ -270,7 +271,7 @@ namespace ExpressSearch.application
                             string expTextName = Utils.ObjectToStr(bodyJD["expTextName"]);//快递公司名
 
                             string tel = string.Empty;
-                            if (((IDictionary)bodyJD).Contains("tel"))
+                            if (((IDictionary)bodyJD).Contains("tel")) //判断tel键是否存在
                             {
                                 tel = Utils.ObjectToStr(bodyJD["tel"]);//快递电话
                             }
@@ -286,9 +287,9 @@ namespace ExpressSearch.application
                             return LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 0, msg = msg });
                         }
                     }
-                    return LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 0, msg = "请求失败" + respMsg });
+                    return Json.ToJson(new Models.ResultJson() { status = 0, msg = "请求失败" + respMsg });
                 }
-                return LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 0, msg = "阿里云快递查询失败：账户余额不足" });
+                return Json.ToJson(new Models.ResultJson() { status = 0, msg = "阿里云快递查询失败：账户余额不足" });
             }
         }
 
@@ -368,7 +369,7 @@ namespace ExpressSearch.application
         /// <returns></returns>
         private string SearchDataBase(Models.SysExpressSearch searchModel)
         {
-            string stringJson = LitJson.JsonMapper.ToJson(new Models.ResultJson() { status = 1, msg = "请求成功" ,info= searchModel });
+            string stringJson = Json.ToJson(new Models.ResultJson() { status = 1, msg = "请求成功", info = searchModel });
             CacheHelper.Insert("no" + searchModel.MailNo, stringJson, 120);//添加到缓存 过期时间2个小时
             return stringJson;
         }

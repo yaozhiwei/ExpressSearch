@@ -8,6 +8,10 @@ namespace ExpressSearch.Models
 {
     public class SysExpressSearch
     {
+        public SysExpressSearch()
+        {
+            InfoList = new List<SysExpressSearchInfo>();
+        }
         [Key]
         public int SysExpressSearchId { get; set; }
         public string MailNo { get; set; }
@@ -19,6 +23,6 @@ namespace ExpressSearch.Models
         public string ExpSpellName { get; set; }
 
         public string ExpTextName { get; set; }
-        public List<SysExpressSearchInfo> InfoList { get; set; }
+        public virtual List<SysExpressSearchInfo> InfoList { get; set; }
     }
 }

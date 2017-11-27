@@ -23,6 +23,7 @@ namespace ExpressSearch.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+           
         }
 
         public DbSet<SysExpressSearch> expressSearchs { get; set; }

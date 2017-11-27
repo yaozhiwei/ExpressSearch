@@ -11,6 +11,7 @@ using LitJson;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using ExpressSearch.code;
+using Newtonsoft.Json;
 
 namespace ExpressSearch.Helpers
 {
@@ -1906,6 +1907,6 @@ namespace ExpressSearch.Helpers
             return sBuilder.ToString();
         }
         #endregion
-
+        
     }
 }

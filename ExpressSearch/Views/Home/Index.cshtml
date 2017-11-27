@@ -2,14 +2,20 @@
 
 @{
     ViewBag.data = "Home Page";
-    var express = (ExpressSearch.Models.SysExpressSearch)Model.info;
+    var express = Model.info;
 }
 
 <div style="text-align:center;">
     <h3>快递详情</h3>
+    订单号：@express.MailNo
     @if (express != null && express.InfoList != null)
     {
-        @express.MailNo
+        foreach (ExpressSearch.Models.SysExpressSearchInfo searchInfo in express.InfoList)
+        {
+            <div>
+                @searchInfo.AddTime @searchInfo.context
+            </div>
+        }
     }
     else
     {
